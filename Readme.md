@@ -43,3 +43,25 @@ docker ps -a
 docker ps -q
 docker ps -qa
 ```
+```
+docker exec -it a2e223a32bf /bin/bash
+```
+```
+docker commit -m "filget image" a2e223a32bf filget_41:v1
+```
+```
+docker rm -f a2e223a32bf
+```
+```
+docker stop a2e223a32bf
+docker rm a2e223a32bf
+```
+```
+docker logs a2e223a32bf
+docker logs -f a2e223a32bf
+docker logs -f --tail 1 a2e223a32bf
+```
+```
+docker rmi ubuntu
+docker rmi -f ubuntu
+```
