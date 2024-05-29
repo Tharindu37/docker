@@ -64,4 +64,37 @@ docker logs -f --tail 1 a2e223a32bf
 ```
 docker rmi ubuntu
 docker rmi -f ubuntu
+docker rmi ubuntu ubuntu:22.04
+docker rmi -f ubuntu ubuntu:22.04
+```
+```
+docker push ubuntu:v1
+```
+```
+docker tag ubuntu:v1 tharindu37/ubuntu:v1
+docker full tharindu37/ubuntu:v1
+```
+```
+docker login
+```
+
+### Dockerfile
+It's plain text file it contains set of instructions to run application
+```
+FROM --> define a base image ex: FROM ubuntu:20.04
+ENV --> 
+ARG
+EXPOSR
+WORKDIR
+LABEL | MAINTAINER
+RUN
+COPY
+ADD
+VOLUME
+USER
+ONBUILD
+HEALTHCHECK
+CMD
+STOPSIGNAL
+ENTRYPOINT
 ```
