@@ -77,24 +77,61 @@ docker full tharindu37/ubuntu:v1
 ```
 docker login
 ```
-
+```
+docker kill <containername/containerid>
+docker stop <containername/containerid>
+docker start <containername/containerid>
+```
 ### Dockerfile
 It's plain text file it contains set of instructions to run application
+ --> os
+ --> jdk
+ --> copy
+ --> javac HelloWorld.java
+ --> java HelloWorld
 ```
-FROM --> define a base image ex: FROM ubuntu:20.04
-ENV --> 
-ARG
-EXPOSR
-WORKDIR
-LABEL | MAINTAINER
-RUN
-COPY
-ADD
-VOLUME
-USER
-ONBUILD
-HEALTHCHECK
-CMD
-STOPSIGNAL
-ENTRYPOINT
+FROM --> define a base image ex: FROM ubuntu:20.04 ex: FROM openjdk
+ENV --> environment
+ARG --> arguments (this instruction can define before FROM)
+EXPOSR --> documentation about ports are using in your application
+WORKDIR --> create folder and cd
+LABEL | MAINTAINER --> author
+RUN --> any commands to be run at the of build
+COPY --> copy the files from src to dest ex: COPY HelloWorld.java HelloWorld.java
+ADD --> copy the files from src to dest
+VOLUME --> to peristance our container data
+USER --> which user
+ONBUILD --> triggers
+HEALTHCHECK --> to check application is healthy or not
+CMD --> executables
+STOPSIGNAL --> 
+ENTRYPOINT --> executables ex: java HelloWorld
+```
+
+### Port forwarding (EC2)
+```
+docker pull tutum/hello-world
+docker images
+docker run -d --name webapp tutum/hello-world
+dokcer ps
+```
+Go to Security Groups
+```
+docker exec -it <containerid> /bin/sh
+curl http://localhost:80
+exit
+```
+```
+docker exec -it <containerid> /bin/sh
+netstart -nlpt
+exit
+```
+```
+docker ps
+docker run -d -p 80 --name webapp1 tutum/hello-world
+```
+Go to Security Groups
+```
+docker run -d -p 80:80 --name webapp2 tutum/hello-world
+docker run -d -p 8081:80 --name webapp3 tutum/hello-world
 ```
