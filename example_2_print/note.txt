@@ -1,0 +1,4 @@
+docker build -t demo .
+docker image ls
+docker build -t demo:v1 .
+docker run demo

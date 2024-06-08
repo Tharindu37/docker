@@ -1,0 +1,7 @@
+docker build -t demo .
+docker run demo
+
+docker tag demo tharindu37/demo
+docker push tharindu37/demo
+
+docker pull tharindu37/demo
